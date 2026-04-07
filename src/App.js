@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
 
-function App() {
+import React, { useContext } from "react";
+import { GlobalStyles } from "./Styles/global.js";
+import { ThemeContext } from "./Context/ThemeContext.js";
+import { ThemeProvider } from "styled-components";
+import { ToastContainer } from "react-toastify";
+import {Routes,Route} from 'react-router-dom';
+import Home from "./Pages/Home.jsx";
+import UserPage from "./Pages/UserPage.jsx";
+
+
+export default function App() {
+  const { theme } = useContext(ThemeContext); //theme == themeoptions[0].value it is an object
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <ToastContainer />
+      {/* Toast where all toast will be placed */}
+       <GlobalStyles />
+       
+       {/* Routes will rendered here below */}
+       <Routes>
+        <Route path='/' element={<Home/>}/>
+        <Route path="/user" element={<UserPage/>}/>
+       </Routes>
+
+    </ThemeProvider>
   );
 }
 
-export default App;
+//here all compnent can access the theme now 
+
+//lecture 24 till 13:00 min 

@@ -1,0 +1,54 @@
+import React, { useContext } from "react";
+import { TestModeContext } from "../Context/TestModeContext.js";
+
+// import { useContext } from "react"
+// import { TestModeContext } from "../Context/TestModeContext.js"
+
+// export default function UpperMenu({countDown}) {
+//   const { setTestTime,testTime } = useContext(TestModeContext);
+
+//   function updateTime(e) {
+//     setTestTime(Number(e.target.id));//here we are updating the global testMode Context
+//   }
+
+//   return (
+//     <div className="upper-menu">
+//       <div className="counter">{countDown}</div>
+//       <p>{testTime}</p>
+//       <div className="modes">
+//         <div className="time-mode" id="15" onClick={updateTime}>
+//           15s
+//         </div>
+//         <div className="time-mode" id="30" onClick={updateTime}>
+//           30s
+//         </div>
+//         <div className="time-mode" id="60" onClick={updateTime}>
+//           60s
+//         </div>
+//       </div>
+//     </div>
+//   );
+
+// }
+
+export default function UpperMenu({countDown})
+{
+  const {testTime,setTestTime}=useContext(TestModeContext)
+  function updateTime(e)
+  {
+     setTestTime(Number(e.target.id)); 
+  }
+
+  return(
+  <div className="upper-menu">
+   <div className="counter">
+     {countDown}
+   </div>
+   <div className="modes">
+    <div className="time-mode" id="15" onClick={updateTime}>15s</div>
+    <div className="time-mode" id="30" onClick={updateTime}>30s</div>
+    <div className="time-mode" id="60" onClick={updateTime}>60s</div>
+   </div>
+    
+  </div>)
+}
