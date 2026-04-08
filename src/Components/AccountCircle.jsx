@@ -72,8 +72,8 @@ export default function AccountCircle() {
 
   return (
     <div>
-      <AccountCircleIcon onClick={handleModal} />
-      {user && <LogoutIcon onClick={logout}/>}
+      <AccountCircleIcon className="circleIcon" onClick={handleModal} />
+      {user && <LogoutIcon className="logoutIcon" onClick={logout}/>}
       <Modal
         open={open}
         onClose={handleClose}

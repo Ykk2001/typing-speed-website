@@ -13,8 +13,14 @@ export const GlobalStyles = createGlobalStyle`
     margin-right:auto;
   }
 
-.formfield{
-  
+.circleIcon{
+  margin-right:7px;
+}
+.circleIcon:hover{
+  cursor:pointer
+}
+.logoutIcon:hover{
+cursor:pointer
 }
 
  body{
