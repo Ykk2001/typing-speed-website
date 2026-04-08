@@ -31,4 +31,4 @@ export default function App() {
 
 //here all compnent can access the theme now 
 
-//lecture 24 till 13:00 min 
+//lecture 26 till 3:00 min 

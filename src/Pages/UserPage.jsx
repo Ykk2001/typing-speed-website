@@ -7,6 +7,7 @@ import { CircularProgress } from "@mui/material";
 import TableUserData from "../Components/TableUserData";
 import DatevsWpmGraph from "../Components/DatevsWpmGraph";
 import UserInfo from "../Components/UserInfo";
+import Footer from "../Components/Footer";
 
 export default function UserPage() {
   const [data, setData] = useState([]); //array of object
@@ -88,6 +89,8 @@ export default function UserPage() {
       </div>
 
       <TableUserData data={data} />
+
+      <Footer/>
     </div>
   );
 }

@@ -35,13 +35,22 @@ export default function SignUpForm({handleClose}) {
      })
 
     }
+
+    const styleObj={
+      input:{style:{color:theme.color}},inputLabel:{style:{color:theme.color}}
+    }//style object for textField
+
+   const btnStyle={
+    backgroundColor:theme.color,color:theme.background
+   }//btn style obj
+   
   return (
-    <div style={{border:'1px solid green'}}>
+    <div >
       <Box p={3} style={{display:'flex',flexDirection:'column',gap:'20px'}}>
-        <TextField variant='outlined' type='email' label='Enter Email' onChange={(e)=>setEmail(e.target.value)} InputLabelProps={{style:{color:theme.color}}}/>
-        <TextField variant='outlined' type='password' label='Enter Password' onChange={(e)=>setPassword(e.target.value)} InputLabelProps={{style:{color:theme.color}}}/>
-        <TextField variant='outlined' type='password' label='Enter Confirm password' onChange={(e)=>setConfirmPassword(e.target.value)} InputLabelProps={{style:{color:theme.color}}}/>
-        <Button variant='contained' size='large' style={{backgroundColor:theme.color}} onClick={handleSubmit}>SignUp</Button>
+        <TextField className='formfield' variant='outlined' type='email' label='Enter Email' onChange={(e)=>setEmail(e.target.value)}  slotProps={styleObj}/>
+        <TextField className='formfield' variant='outlined' type='password' label='Enter Password' onChange={(e)=>setPassword(e.target.value)} slotProps={styleObj}/>
+        <TextField className='formfield' variant='outlined' type='password' label='Enter Confirm password' onChange={(e)=>setConfirmPassword(e.target.value)} slotProps={styleObj}/>
+        <Button variant='contained' size='large' style={btnStyle} onClick={handleSubmit}>SignUp</Button>
       </Box>
     </div>
   )

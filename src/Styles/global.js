@@ -6,13 +6,16 @@ export const GlobalStyles = createGlobalStyle`
   box-sizing:border-box;
 }
 .header{
-    border:1px solid yellow;
     display:flex;
     justify-content:space-between;
     width:1000px;
     margin-left:auto;
     margin-right:auto;
   }
+
+.formfield{
+  
+}
 
  body{
   background:${(props) => props.theme.background};
@@ -100,7 +103,6 @@ export const GlobalStyles = createGlobalStyle`
     font-size:1.35rem;
     justify-content:space-between;
     padding:0.5rem;
-    border:1px solid red;
   }
   .modes{
      display:flex;
@@ -112,13 +114,24 @@ export const GlobalStyles = createGlobalStyle`
   }
   
   .footer{
-    width:1000px;
-    display:flex;
-    justify-content:space-between;
-    margin-left:auto;
-    margin-right:auto;
-    border:1px solid blue;
-  }
+  width:1000px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-left:auto;
+  margin-right:auto;
+  padding:15px 20px;
+  border-top:1px solid ${(props) => props.theme.color};
+}
+.links{
+  display:flex;
+  gap:20px;
+  
+}
+.Link{
+  color:${(props)=>props.theme.color};
+  text-decoration:none;
+}
   .stats-box{
   display:flex;
   width:1000px;

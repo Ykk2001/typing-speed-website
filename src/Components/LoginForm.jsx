@@ -26,8 +26,16 @@ export default function LoginForm({handleClose}) {
     })
   }//handleSubmit
 
+  const styleObj={
+      input:{style:{color:theme.color}},inputLabel:{style:{color:theme.color}}
+    }//style object for textField
+
+   const btnStyle={
+    backgroundColor:theme.color,color:theme.background
+   }//btn style obj
+
   return (
-    <div style={{ border: "1px solid white" }}>
+    <div>
       <Box
         style={{ display: "flex", flexDirection: "column", gap: "10px" }}
         p={3}
@@ -37,7 +45,7 @@ export default function LoginForm({handleClose}) {
           type="email"
           label="Enter Email"
           onChange={(e) => setEmail(e.target.value)} 
-          InputLabelProps={{style:{color:theme.color}}}
+         slotProps={styleObj}
          
         />
         <TextField
@@ -45,9 +53,9 @@ export default function LoginForm({handleClose}) {
           type="password"
           label="Enter Password"
           onChange={(e) => setPassword(e.target.value)}
-          InputLabelProps={{style:{color:theme.color}}}
+          slotProps={styleObj}
         />
-        <Button variant="contained" size="large" sx={{backgroundColor:theme.color}} onClick={handleSubmit}>
+        <Button variant="contained" size="large" style={btnStyle} onClick={handleSubmit}>
           Login
         </Button>
       </Box>
