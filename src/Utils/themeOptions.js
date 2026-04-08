@@ -1,16 +1,18 @@
-const darkTheme={
-    label:'Dark',
-    background:'black',
-    color:'white',
-    typeBoxText:'grey'
-}
 
-const redTheme={
-    label:'Red',
-    background:'red',
-    color:'purple',
-    typeBoxText:'pink'
-}
+const darkTheme = {
+  label: "Dark",
+  background: "#121212",
+  color: "#FFFFFF",
+  typeBoxText: "#AAAAAA"
+};
+
+const redTheme = {
+  label: "Crimson",
+  background: "#4c4043",
+  color: "#e94654",
+  typeBoxText: "#A8A8A8"
+};
+
 const fledging={
     label:'Fledging',
     background:'#3B363F',
