@@ -28,7 +28,7 @@ cursor:pointer
   color:${(props) => props.theme.color};
   margin:0px;
   padding:0px;
-  transition:all 3s linear;
+  transition:all 1s linear;
  }
 
  .canvas{
