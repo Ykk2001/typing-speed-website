@@ -30,12 +30,12 @@ export default function TableUserData({ data }) {
             {
               data.map((doc) => {
                 return (
-                  <TableRow>
+                  <TableRow key={doc.id}>
                     <TableCell style={cellStyle}>{doc.wpm}</TableCell>
                     <TableCell style={cellStyle}>{doc.accuracy}</TableCell>
                     <TableCell style={cellStyle}>{doc.characters}</TableCell>
                     <TableCell style={cellStyle}>
-                      {doc.Timestamp.toDate().toLocaleString()}
+                      {doc.createdAt.toDate().toLocaleString()}
                     </TableCell>
                   </TableRow>
                 );

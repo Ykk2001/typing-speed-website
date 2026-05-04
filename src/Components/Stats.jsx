@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import Graph from "./Graph";
 import { auth, db } from "../firebaseConfig.js";
 import { toast } from "react-toastify";
-import {collection,addDoc} from 'firebase/firestore';
+import { collection, addDoc } from "firebase/firestore";
 
 export default function Stats({
   correctChars,
@@ -17,35 +17,41 @@ export default function Stats({
   charData,
   wordData,
 }) {
-   function pushDataToDB() {
-    const resultsRef = collection(db,"Results"); //creating collection into the database
+  function pushDataToDB() {
+    const resultsRef = collection(db, "Results"); //creating collection into the database
     const { uid } = auth.currentUser;
-    console.log("userId",auth.currentUser);
+    console.log("userId", auth.currentUser);
 
-     addDoc(resultsRef,{
+    console.log("wpm:", wpm);
+    console.log("accuracy:", accuracy);
+    console.log("user uid:", uid);
+
+    addDoc(resultsRef, {
       wpm: wpm,
       accuracy: accuracy,
-      Timestamp: new Date(),
+      createdAt: new Date(),
       characters: `${correctChars}/${inCorrectChars}/${missedChars}/${extraChars}`,
       userId: uid,
-    }).then((res)=>{
-      toast.success("Data Saved To Db..")
-    }).catch((err)=>{
-      toast.error("Not able to Save Result...")
     })
+      .then((res) => {
+        toast.success("Data Saved To Db..");
+      })
+      .catch((err) => {
+        toast.error("Not able to Save Result...");
+      });
   }
-  
-  useEffect(()=>{
-    if(!auth.currentUser)
-    {
-       toast.warning('Login to Save Results..');
-       return;
+
+
+
+  useEffect(() => {
+    if (!auth.currentUser) {
+      toast.warning("Login to Save Results..");
+      return;
     }
-    if(wpm>0)
-    {
-      pushDataToDB()
+    if (wpm > 0) {
+      pushDataToDB();
     }
-  },[wpm])//at starting wpm=0 and later when it changes after completing the test then then this useEffect will again run
+  }, [wpm]); //at starting wpm=0 and later when it changes after completing the test then then this useEffect will again run
 
   return (
     <div className="stats-box">

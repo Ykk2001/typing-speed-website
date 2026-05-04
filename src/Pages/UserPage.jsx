@@ -30,8 +30,8 @@ export default function UserPage() {
     const snapshot = await getDocs(q);
 
     const sortedDocs = snapshot.docs.sort(
-      (a, b) => a.data().Timestamp.seconds - b.data().Timestamp.seconds,
-    ); //sort document according to time
+    (a, b) => a.data().createdAt.seconds - b.data().createdAt.seconds
+  ); //sort document according to time
     //     Timestamp = {
     //   seconds: 1712256810,
     //   nanoseconds: 123000000
@@ -45,7 +45,7 @@ export default function UserPage() {
 
     sortedDocs.forEach((doc) => {
       tempData.push({ id: doc.id, ...doc.data() });
-      labels.push(doc.data().Timestamp.toDate().toLocaleString());
+      labels.push(doc.data().createdAt.toDate().toLocaleString());
       wpmData.push(doc.data().wpm);
       // console.log("Document", doc.data());
     });
